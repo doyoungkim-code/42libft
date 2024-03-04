@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 14:47:45 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/04 14:45:23 by doyoukim         ###   ########.fr       */
+/*   Created: 2024/03/04 10:28:32 by doyoukim          #+#    #+#             */
+/*   Updated: 2024/03/04 13:56:53 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 
 size_t	ft_strlen(const char *s)
 {
@@ -22,27 +22,41 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	len;
+	char	*s3;
+	size_t	total_len;
+	size_t	i;
+	size_t	k;
 
-	len = ft_strlen(s);
-	while (len != 0)
+	i = 0;
+	k = 0;
+	total_len = ft_strlen(s1) + ft_strlen(s2);
+	s3 = (char *)malloc(sizeof(char) * (total_len + 1));
+	if (s3 == NULL)
+		return (NULL);
+	while (i < ft_strlen(s1))
 	{
-		if (s[len] == c)
-			return ((char *)s + len);
-		len --;
+		s3[i] = s1[i];
+		i ++;
 	}
-	return (0);
+	while (i < total_len)
+	{
+		s3[i] = s2[k];
+		i ++;
+		k ++;
+	}
+	s3[i] = '\0';
+	return (s3);
 }
 
 /*
 #include <stdio.h>
-int	main(void)
+int main(void)
 {
-	char a[] = "hello, world";
-
-	printf("%s", ft_strrchr(a, 'l'));
-	return (0);
+    char as[] = "abcdefgh";
+	char ass[] = "ddddd";
+    printf("%s", ft_strjoin(as, ass));
+    return (0);
 }
 */

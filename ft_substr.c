@@ -1,48 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 14:47:45 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/04 14:45:23 by doyoukim         ###   ########.fr       */
+/*   Created: 2024/03/04 09:59:50 by doyoukim          #+#    #+#             */
+/*   Updated: 2024/03/04 10:25:22 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 
-size_t	ft_strlen(const char *s)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	len;
+	char		*str;
+	size_t		i;
 
-	len = 0;
-	while (s[len] != '\0')
-		len ++;
-	return (len);
-}
-
-char	*ft_strrchr(const char *s, int c)
-{
-	size_t	len;
-
-	len = ft_strlen(s);
-	while (len != 0)
+	if (s == NULL)
+		return (NULL);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		if (s[len] == c)
-			return ((char *)s + len);
-		len --;
+		str[i] = s[start];
+		i ++;
+		start ++;
 	}
-	return (0);
+	str[i] = '\0';
+	return (str);
 }
 
 /*
 #include <stdio.h>
 int	main(void)
 {
-	char a[] = "hello, world";
+	char as[] = "abcdefgh";
 
-	printf("%s", ft_strrchr(a, 'l'));
+	printf("%s", ft_substr(as, 3, 4));
 	return (0);
 }
 */
