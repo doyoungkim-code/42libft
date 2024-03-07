@@ -6,11 +6,11 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:23:33 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/02/27 15:46:47 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:15:16 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

@@ -6,14 +6,13 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:44:51 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/06 15:52:31 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:29:43 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
-int	ft_wordcount(const char *s, char c)
+static int	ft_wordcount(const char *s, char c)
 {
 	int	i;
 	int	result;
@@ -29,7 +28,7 @@ int	ft_wordcount(const char *s, char c)
 	return (result);
 }
 
-char	*ft_strtok(char *s, char c, int *len, int *del_len)
+static char	*ft_strtok(char *s, char c, int *len, int *del_len)
 {
 	char	*tok;
 
@@ -50,7 +49,7 @@ char	*ft_strtok(char *s, char c, int *len, int *del_len)
 	return (s);
 }
 
-char	**ft_strtok_front(char *s, char c, int wordc)
+static char	**ft_strtok_front(char *s, char c, int wordc)
 {
 	int		len;
 	int		del;

@@ -6,11 +6,11 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:21:40 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/02/28 15:16:56 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:05:37 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

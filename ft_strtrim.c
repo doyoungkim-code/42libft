@@ -6,37 +6,11 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:57:22 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/04 15:42:52 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:25:26 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == c)
-			return ((char *)s + i);
-		i ++;
-	}
-	if (c == '\0')
-		return ((char *)s + i);
-	return (0);
-}
+#include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

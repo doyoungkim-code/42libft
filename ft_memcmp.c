@@ -6,11 +6,11 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:52:45 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/02/27 16:28:53 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:17:23 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

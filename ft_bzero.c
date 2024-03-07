@@ -6,11 +6,11 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:56:21 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/02/28 14:18:20 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:06:15 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

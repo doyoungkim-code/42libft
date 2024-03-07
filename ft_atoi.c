@@ -6,9 +6,11 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 17:59:41 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/02/28 18:44:48 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:19:23 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {
@@ -36,7 +38,6 @@ int	ft_atoi(const char *nptr)
 	}
 	return (sign * n);
 }
-
 /*
 #include <stdlib.h>
 #include <stdio.h>
@@ -49,7 +50,7 @@ int main(void)
 	char strd[] = "   000342a3%123";
     char stre[] = "   ~~3423%123";
     char strf[] = "   3423%123";
-    char strg[] = "34212-3";
+    char strg[] = "-2147483648-3";
     char strh[] = "   -++34123";
 
 	printf("%d\n", ft_atoi(stra));

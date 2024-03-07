@@ -6,21 +6,11 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 14:47:45 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/04 14:45:23 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:13:30 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len] != '\0')
-		len ++;
-	return (len);
-}
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
