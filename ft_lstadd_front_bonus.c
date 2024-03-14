@@ -1,46 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 09:59:50 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/12 14:41:00 by doyoukim         ###   ########.fr       */
+/*   Created: 2024/03/13 15:49:14 by doyoukim          #+#    #+#             */
+/*   Updated: 2024/03/13 17:54:38 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	char		*str;
-	size_t		i;
-
-	if (s == NULL)
-		return (NULL);
-	if (ft_strlen(s) < start)
-		len = 0;
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (i < len && s[start] != '\0')
-	{
-		str[i] = s[start];
-		i ++;
-		start ++;
-	}
-	str[i] = '\0';
-	return (str);
+	if (new == NULL || lst == NULL)
+		return ;
+	if (*lst != NULL)
+		new -> next = (*lst);
+	*lst = new;
 }
+
 /*
 #include <stdio.h>
-int	main(void)
+int main(void)
 {
-	char as[] = "abcdefgh";
-
-	printf("%s", ft_substr(as, 10, 4));
-	return (0);
+    t_list node;
+	t_list babo;
+	t_list *head = &node;
+	
+	node.content = "abc";
+	node.next = NULL;
+	babo.content = "edf";
+	babo.next = NULL;
+	printf("%s", (char *)head -> content);
+    ft_lstadd_front(&head, &babo);
+	printf("%s", (char *)head -> next -> content);
+    return (0);
 }
 */

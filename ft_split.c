@@ -6,11 +6,25 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:44:51 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/07 18:29:43 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:47:18 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	**ft_free(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		free(s[i]);
+		i ++;
+	}
+	free(s);
+	return (NULL);
+}
 
 static int	ft_wordcount(const char *s, char c)
 {
@@ -58,18 +72,23 @@ static char	**ft_strtok_front(char *s, char c, int wordc)
 	int		i;
 
 	i = 1;
-	result = (char **)malloc(sizeof(char *) * (wordc + 1));
+	result = (char **)ft_calloc(sizeof(char *), (wordc + 1));
+	if (result == NULL)
+		return (NULL);
 	str = ft_strtok(s, c, &len, &del);
-	result[0] = (char *)malloc(sizeof(char) * (len + 1));
+	result[0] = (char *)ft_calloc(sizeof(char), (len + 1));
+	if (result[0] == NULL)
+		return (ft_free(result));
 	result[0] = str + del;
 	while (i < wordc)
 	{
 		str = ft_strtok(str + len + del + 1, c, &len, &del);
-		result[i] = (char *)malloc(sizeof(char) * (len + 1));
+		result[i] = (char *)ft_calloc(sizeof(char), (len + 1));
+		if (result[i] == NULL)
+			return (ft_free(result));
 		result[i] = str + del;
 		i ++;
 	}
-	result[i] = 0;
 	return (result);
 }
 
@@ -80,15 +99,16 @@ char	**ft_split(char const *s, char c)
 
 	wordc = ft_wordcount(s, c);
 	result = ft_strtok_front((char *)s, c, wordc);
+	if (result == NULL)
+		return (NULL);
 	return (result);
 }
 
 /*
 #include <stdio.h>
-
 int	main(void)
 {	
-	char	s[] = "hello    world of    world";
+	char	s[] = "hell";
 		
 	char	**result = ft_split(s, ' ');
 	int i = 0;
@@ -97,6 +117,7 @@ int	main(void)
 		printf("%s\n", result[i]);
 		i ++;
 	}
+	ft_free(result);
 	return (0);
 }
 */

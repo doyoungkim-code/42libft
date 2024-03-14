@@ -1,46 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 09:59:50 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/12 14:41:00 by doyoukim         ###   ########.fr       */
+/*   Created: 2024/03/12 11:41:28 by doyoukim          #+#    #+#             */
+/*   Updated: 2024/03/12 14:02:38 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putchar_fd(char c, int fd)
 {
-	char		*str;
-	size_t		i;
-
-	if (s == NULL)
-		return (NULL);
-	if (ft_strlen(s) < start)
-		len = 0;
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (i < len && s[start] != '\0')
-	{
-		str[i] = s[start];
-		i ++;
-		start ++;
-	}
-	str[i] = '\0';
-	return (str);
+	write (fd, &c, 1);
 }
+
 /*
 #include <stdio.h>
+#include <fcntl.h>
 int	main(void)
 {
-	char as[] = "abcdefgh";
+	int	fd;
 
-	printf("%s", ft_substr(as, 10, 4));
+	fd = open("myfile.txt", O_RDWR | O_CREAT, 0644);
+	if(fd == -1)
+		printf("오류");
+	if(fd >= 0)
+		printf("정상");
+	printf("%d", fd);
+	ft_putchar_fd('a',fd);
 	return (0);
 }
 */

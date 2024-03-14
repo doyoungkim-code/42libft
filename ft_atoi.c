@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 17:59:41 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/07 18:19:23 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:50:33 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	sign;
-	int	i;
-	int	n;
+	unsigned int	sign;
+	unsigned int	i;
+	unsigned int	n;
 
 	i = 0;
 	n = 0;

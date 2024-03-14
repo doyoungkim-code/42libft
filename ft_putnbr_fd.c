@@ -1,46 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 09:59:50 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/12 14:41:00 by doyoukim         ###   ########.fr       */
+/*   Created: 2024/03/12 16:09:01 by doyoukim          #+#    #+#             */
+/*   Updated: 2024/03/12 16:55:05 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char		*str;
-	size_t		i;
+	int	nb;
 
-	if (s == NULL)
-		return (NULL);
-	if (ft_strlen(s) < start)
-		len = 0;
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (i < len && s[start] != '\0')
+	if (n == -2147483648)
 	{
-		str[i] = s[start];
-		i ++;
-		start ++;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	str[i] = '\0';
-	return (str);
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = n * (-1);
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	if (n < 10)
+	{
+		nb = n % 10 + '0';
+		write(fd, &nb, 1);
+	}
 }
 /*
 #include <stdio.h>
+#include <fcntl.h>
 int	main(void)
 {
-	char as[] = "abcdefgh";
+	int	n;
+	int fd;
 
-	printf("%s", ft_substr(as, 10, 4));
+	n = 3;
+	fd = open("test.txt", O_RDWR | O_CREAT, 0644);
+	ft_putnbr_fd(n, fd);
 	return (0);
 }
 */

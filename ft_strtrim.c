@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:57:22 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/07 18:25:26 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/13 14:16:11 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	a = 0;
 	while (ft_strchr(set, s1[i]) != 0 && s1[i] != '\0')
 		i ++;
-	while (ft_strchr(set, s1[s1_len - 1]) != 0)
+	while (ft_strchr(set, s1[s1_len - 1]) != 0 && s1_len > i)
 		s1_len --;
-	if (i >= s1_len)
-		return (NULL);
-	str = (char *)malloc(sizeof(char) * (s1_len - i));
+	str = (char *)malloc(sizeof(char) * (s1_len - i + 1));
 	if (str == NULL)
 		return (NULL);
 	while (i < s1_len)
@@ -42,9 +40,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 }
 
 /*
-#include<stdio.h>
+#include <stdio.h>
 int	main(void)
 {
-	printf("%s", ft_strtrim("abccc2222aac", "abc"));
+	printf("%s", ft_strtrim("abcccaac", "abc"));
 }
 */

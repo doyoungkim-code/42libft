@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 10:20:44 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/07 18:10:19 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:41:17 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
+	if (size == 0 || dst == NULL)
+		return (src_len);
 	i = 0;
 	while (i + dst_len + 1 < size && src[i] != '\0')
 	{

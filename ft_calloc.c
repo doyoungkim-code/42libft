@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:37:54 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/07 18:21:04 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/12 11:26:34 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,24 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char	*pa;
-	int		i;
+	void		*pa;
+	size_t		i;
 
 	i = 0;
-	pa = (char *)malloc(size * nmemb);
-	while (i < nmemb * size)
-	{
-		pa[i] = 0;
-		i ++;
-	}
+	pa = malloc(size * nmemb);
+	if (pa == NULL)
+		return (NULL);
+	ft_bzero(pa, size * nmemb);
 	return (pa);
 }
-
 /*
 #include <stdio.h>
 int	main (void)
 {
-    int num;
+    size_t num;
     int *arr, *arr2, *arr3;
 
-    num = 10;
+    num = 123;
     arr = (int *)malloc(sizeof(int)*num);
 	arr2 = (int *)calloc(num, sizeof(int));
     arr3 = (int *)ft_calloc(num, sizeof(int));

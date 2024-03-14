@@ -1,46 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 09:59:50 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/12 14:41:00 by doyoukim         ###   ########.fr       */
+/*   Created: 2024/03/13 17:14:35 by doyoukim          #+#    #+#             */
+/*   Updated: 2024/03/14 15:54:19 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+int	ft_lstsize(t_list *lst)
 {
-	char		*str;
-	size_t		i;
-
-	if (s == NULL)
-		return (NULL);
-	if (ft_strlen(s) < start)
-		len = 0;
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
-		return (NULL);
+	int	i;
+	
 	i = 0;
-	while (i < len && s[start] != '\0')
+	while (lst != NULL)
 	{
-		str[i] = s[start];
 		i ++;
-		start ++;
+		lst = (*lst).next;
 	}
-	str[i] = '\0';
-	return (str);
+	return (i);
 }
+
 /*
 #include <stdio.h>
 int	main(void)
 {
-	char as[] = "abcdefgh";
+	t_list	*head;
+	t_list	node_a;
+	t_list	node_b;
 
-	printf("%s", ft_substr(as, 10, 4));
+	head = &node_a;
+	node_a.content = "aaa";
+	node_a.next = &node_b;
+	node_b.content = "bbb";
+	node_b.next = NULL;
+
+	printf("%d", ft_lstsize(head));
 	return (0);
 }
 */
