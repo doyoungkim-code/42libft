@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 17:14:35 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/14 17:49:37 by doyoukim         ###   ########.fr       */
+/*   Created: 2024/03/14 16:00:22 by doyoukim          #+#    #+#             */
+/*   Updated: 2024/03/14 16:23:11 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	i;
-
-	i = 0;
-	while (lst != NULL)
-	{
-		i ++;
-		lst = (*lst).next;
-	}
-	return (i);
+	while (lst -> next != NULL)
+		lst = lst -> next;
+	return (lst);
 }
 
 /*
@@ -30,16 +24,20 @@ int	ft_lstsize(t_list *lst)
 int	main(void)
 {
 	t_list	*head;
-	t_list	node_a;
-	t_list	node_b;
+	t_list	lst_a;
+	t_list	lst_b;
+	t_list	lst_c;
+	t_list	*lst_d;
 
-	head = &node_a;
-	node_a.content = "aaa";
-	node_a.next = &node_b;
-	node_b.content = "bbb";
-	node_b.next = NULL;
-
-	printf("%d", ft_lstsize(head));
+	head = &lst_a;
+	lst_a.content = "babo";
+	lst_a.next = &lst_b;
+	lst_b.next = &lst_c;
+	lst_c.next = NULL;
+	lst_c.content = "abc";
+	lst_d = ft_lstlast(head);
+	printf("%s", (char *)lst_d -> content);
+	printf("%s", (char *)head -> content);
 	return (0);
 }
 */
