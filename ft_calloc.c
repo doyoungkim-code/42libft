@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:37:54 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/12 11:26:34 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/15 11:33:12 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void		*pa;
-	size_t		i;
 
-	i = 0;
 	pa = malloc(size * nmemb);
 	if (pa == NULL)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:24:03 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/14 17:16:35 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/15 11:15:59 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int	main(void)
 	t_list	babo_new;
 
 	head = &babo1;
-	babo1.content = "kkk";
+	babo1.content = "babo1";
 	babo1.next = &babo2;
 	babo2.next = NULL;
-	babo_new.content = "abc";
+	babo_new.content = "babo2";
 	babo_new.next = NULL;
 	ft_lstadd_back(&head, &babo_new);
 	printf("%s", (char *)head -> content);
