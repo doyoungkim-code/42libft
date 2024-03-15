@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:57:22 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/13 14:16:11 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/15 13:35:51 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str[a] = '\0';
 	return (str);
 }
-
 /*
 #include <stdio.h>
 int	main(void)
 {
-	printf("%s", ft_strtrim("abcccaac", "abc"));
+	printf("%s", ft_strtrim(NULL, "abc"));
 }
 */

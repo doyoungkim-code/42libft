@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:44:51 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/14 14:47:18 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/15 14:02:31 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,32 +92,30 @@ static char	**ft_strtok_front(char *s, char c, int wordc)
 	return (result);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c) 
 {
 	char	**result;
+	char	*str;
 	int		wordc;
 
-	wordc = ft_wordcount(s, c);
-	result = ft_strtok_front((char *)s, c, wordc);
+	str = ft_strdup(s);
+	wordc = ft_wordcount(str, c);
+	result = ft_strtok_front(str, c, wordc);
 	if (result == NULL)
 		return (NULL);
 	return (result);
 }
 
-/*
 #include <stdio.h>
 int	main(void)
 {	
-	char	s[] = "hell";
-		
-	char	**result = ft_split(s, ' ');
+	char	*string = "     ";
+	char	**result = ft_split(string, ' ');
 	int i = 0;
 	while (result[i])
 	{
 		printf("%s\n", result[i]);
 		i ++;
 	}
-	ft_free(result);
 	return (0);
 }
-*/
