@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 14:47:45 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/07 18:13:30 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/16 13:31:58 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)s + len);
 		len --;
 	}
+	if (s[len] == c)
+		return ((char *)s + len);
 	return (0);
 }
 
@@ -32,7 +34,7 @@ int	main(void)
 {
 	char a[] = "hello, world";
 
-	printf("%s", ft_strrchr(a, 'l'));
+	printf("%s", ft_strrchr(a, 'h'));
 	return (0);
 }
 */

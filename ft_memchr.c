@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:23:33 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/07 18:15:16 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/16 13:27:13 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char		*chrs;
-	size_t				i;
+	char	*chrs;
+	size_t	i;
 
-	chrs = (unsigned char *) s;
+	chrs = (char *) s;
 	i = 0;
 	while (i < n)
 	{

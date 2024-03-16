@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:44:51 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/15 14:02:31 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/16 11:34:27 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,11 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
+/*
 #include <stdio.h>
 int	main(void)
 {	
-	char	*string = "     ";
+	char	*string = "\0abc edf";
 	char	**result = ft_split(string, ' ');
 	int i = 0;
 	while (result[i])
@@ -119,3 +120,4 @@ int	main(void)
 	}
 	return (0);
 }
+*/
