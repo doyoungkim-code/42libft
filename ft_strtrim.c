@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:57:22 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/15 13:35:51 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/16 14:44:54 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	a;
 	size_t	s1_len;
 
+	if (s1 == NULL)
+		return (NULL);
 	s1_len = ft_strlen(s1);
 	i = 0;
 	a = 0;

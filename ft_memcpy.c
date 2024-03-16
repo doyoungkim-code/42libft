@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:04:37 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/16 11:39:38 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/16 17:29:35 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(void)
 	int src[] = {1, 2, 3};
 	int dest[3];
 
-	ft_memcpy(dest, src, sizeof(int) * 3);
+	ft_memcpy(NULL, src, 3);
 
 	for (int i = 0; i < 3; ++i)
 	{

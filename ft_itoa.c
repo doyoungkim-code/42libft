@@ -6,19 +6,30 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:30:16 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/11 13:59:00 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/16 19:22:15 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_digit(int n)
+static int	ft_digit(int n, int *minus)
 {
 	int	d;
 
 	d = 1;
+	if (n == -2147483648)
+	{
+		*minus = 2;
+		d = 9;
+		return (d);
+	}
 	if (n < 0)
+	{
 		n = n * (-1);
+		*minus = 1;
+	}
+	else
+		*minus = 0;
 	while (n >= 10)
 	{
 		n = n / 10;
@@ -35,15 +46,21 @@ char	*ft_itoa(int n)
 	int		digit;
 	int		nb;
 
-	minus = 0;
 	i = 1;
-	digit = ft_digit(n);
+	digit = ft_digit(n, &minus);
 	str = (char *)malloc(sizeof(char) * (digit + minus + 1));
-	if (n < 0)
+	if (str == NULL)
+		return (NULL);
+	if (n < 0 && n != -2147483648)
 	{
 		str[0] = '-';
 		n = n * (-1);
-		minus = 1;
+	}
+	if (n == -2147483648)
+	{
+		str[0] = '-';
+		str[1] = '2';
+		n = 147483648;
 	}
 	while (i <= digit)
 	{
@@ -60,7 +77,7 @@ char	*ft_itoa(int n)
 int	main(void)
 {
 	int	n;
-	n = -126;
+	n = -2147483648;
 	printf("%s", ft_itoa(n));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 16:04:57 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/12 16:05:00 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/16 15:19:01 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (s == NULL)
+		return ;
 	while (s[i] != '\0')
 	{
 		write(fd, &s[i], 1);
