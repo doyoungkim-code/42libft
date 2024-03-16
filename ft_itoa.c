@@ -6,11 +6,26 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:30:16 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/16 19:22:15 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/16 19:30:48 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	ft_negative(int *n, char **str)
+{
+	if ((*n) < 0 && *n != -2147483648)
+	{
+		(*str)[0] = '-';
+		(*n) = (*n) * (-1);
+	}
+	if ((*n) == -2147483648)
+	{
+		(*str)[0] = '-';
+		(*str)[1] = '2';
+		(*n) = 147483648;
+	}
+}
 
 static int	ft_digit(int n, int *minus)
 {
@@ -51,17 +66,7 @@ char	*ft_itoa(int n)
 	str = (char *)malloc(sizeof(char) * (digit + minus + 1));
 	if (str == NULL)
 		return (NULL);
-	if (n < 0 && n != -2147483648)
-	{
-		str[0] = '-';
-		n = n * (-1);
-	}
-	if (n == -2147483648)
-	{
-		str[0] = '-';
-		str[1] = '2';
-		n = 147483648;
-	}
+	ft_negative(&n, &str);
 	while (i <= digit)
 	{
 		nb = n % 10 + 48;

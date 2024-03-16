@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:00:22 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/14 16:23:11 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/16 19:33:32 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
+	if (lst == NULL)
+		return (NULL);
 	while (lst -> next != NULL)
 		lst = lst -> next;
 	return (lst);

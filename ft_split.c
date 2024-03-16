@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:44:51 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/16 11:34:27 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/16 22:53:41 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,12 @@ static char	**ft_strtok_front(char *s, char c, int wordc)
 		result[i] = (char *)ft_calloc(sizeof(char), (len + 1));
 		if (result[i] == NULL)
 			return (ft_free(result));
-		result[i] = str + del;
-		i ++;
+		result[i++] = str + del;
 	}
 	return (result);
 }
 
-char	**ft_split(char const *s, char c) 
+char	**ft_split(char const *s, char c)
 {
 	char	**result;
 	char	*str;
@@ -100,18 +99,20 @@ char	**ft_split(char const *s, char c)
 
 	str = ft_strdup(s);
 	wordc = ft_wordcount(str, c);
-	result = ft_strtok_front(str, c, wordc);
+	if (wordc == 0)
+		result = (char **)ft_calloc(sizeof(char *), 1);
+	else
+		result = ft_strtok_front(str, c, wordc);
 	if (result == NULL)
 		return (NULL);
 	return (result);
 }
-
 /*
 #include <stdio.h>
 int	main(void)
 {	
-	char	*string = "\0abc edf";
-	char	**result = ft_split(string, ' ');
+	char	*string = "split  ||this|for|me|||||!|";
+	char	**result = ft_split(string, '|');
 	int i = 0;
 	while (result[i])
 	{
