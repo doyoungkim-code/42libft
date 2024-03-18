@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 13:34:09 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/07 18:03:24 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:37:43 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,3 +19,10 @@ int	ft_isascii(int d)
 	else
 		return (0);
 }
+/*
+#include <stdio.h>
+int	main()
+{
+	printf("%d", ft_isascii(129));
+}
+*/
