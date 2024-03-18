@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:44:51 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/16 22:53:41 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/18 12:15:12 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,14 @@ static char	**ft_strtok_front(char *s, char c, int wordc)
 	result[0] = (char *)ft_calloc(sizeof(char), (len + 1));
 	if (result[0] == NULL)
 		return (ft_free(result));
-	result[0] = str + del;
+	ft_strlcpy(result[0], str + del, len + 1);
 	while (i < wordc)
 	{
 		str = ft_strtok(str + len + del + 1, c, &len, &del);
 		result[i] = (char *)ft_calloc(sizeof(char), (len + 1));
 		if (result[i] == NULL)
 			return (ft_free(result));
-		result[i++] = str + del;
+		ft_strlcpy(result[i++], str + del, len + 1);
 	}
 	return (result);
 }
@@ -97,7 +97,11 @@ char	**ft_split(char const *s, char c)
 	char	*str;
 	int		wordc;
 
+	if (s == NULL)
+		return (NULL);
 	str = ft_strdup(s);
+	if (str == NULL)
+		return (NULL);
 	wordc = ft_wordcount(str, c);
 	if (wordc == 0)
 		result = (char **)ft_calloc(sizeof(char *), 1);
@@ -105,20 +109,22 @@ char	**ft_split(char const *s, char c)
 		result = ft_strtok_front(str, c, wordc);
 	if (result == NULL)
 		return (NULL);
+	free(str);
 	return (result);
 }
 /*
 #include <stdio.h>
 int	main(void)
 {	
-	char	*string = "split  ||this|for|me|||||!|";
-	char	**result = ft_split(string, '|');
+	char	*string = "      split       this for   me  !       ";
+	char	**result = ft_split(string, ' ');
 	int i = 0;
 	while (result[i])
 	{
 		printf("%s\n", result[i]);
 		i ++;
 	}
+	ft_free(result);
 	return (0);
 }
 */
