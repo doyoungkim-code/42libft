@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:30:16 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/16 19:30:48 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:26:15 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,9 @@ int	main(void)
 {
 	int	n;
 	n = -2147483648;
-	printf("%s", ft_itoa(n));
+	char *it = ft_itoa(n);
+	printf("%s", it);
+	free (it);
 	return (0);
 }
 */

@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:28:01 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/16 11:47:47 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:05:50 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,14 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 /*
 #include <stdio.h>
+#include <string.h>
+
 int	main(void)
 {
 	int	arr[] = {1,2,3,4,5,6,7,8,9,10};
 	int *a1 = arr;
 	int *a2 = arr + 1;
-	ft_memmove(a2, a1, sizeof(int) * 10);
+	ft_memmove(a2, a1, sizeof(int) * 9);
 	int	i = 0;
 	while (i < 10)
 	{

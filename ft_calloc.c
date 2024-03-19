@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:37:54 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/18 17:01:24 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:21:11 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t		n;
 
 	n = size * nmemb;
-	if ((n / nmemb) != size)
+	if (nmemb != 0 && (n / nmemb) != size)
 		return (NULL);
 	pa = malloc(n);
 	if (pa == NULL)
@@ -35,8 +35,8 @@ int	main (void)
 
     num = 123;
     arr = (int *)malloc(sizeof(int)*num);
-	arr2 = (int *)calloc(num, sizeof(int));
-    arr3 = (int *)ft_calloc(num, sizeof(int));
+	arr2 = (int *)calloc(0, sizeof(int));
+    arr3 = (int *)ft_calloc(0, sizeof(int));
 
     for (int i = 0; i < num + 3; i++)
     {
