@@ -6,7 +6,7 @@
 /*   By: doyoukim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 14:24:09 by doyoukim          #+#    #+#             */
-/*   Updated: 2024/03/07 18:12:44 by doyoukim         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:34:39 by doyoukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ char	*ft_strchr(const char *s, int c)
 
 /*
 #include <stdio.h>
+#include <string.h>
 int	main(void)
 {
 	char abc[] = "hello";
-
-	printf("%s\n", ft_strchr(abc, 'l'));
-	printf("a");
+	printf("%s\n", strchr(abc, '\0'));
+	printf("%s\n", ft_strchr(abc, '\0'));
 	return (0);
 }
 */
